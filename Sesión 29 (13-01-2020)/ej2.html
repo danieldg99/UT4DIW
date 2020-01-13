@@ -1,0 +1,43 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>Web de pruebas</title>
+    <style>
+        .mapa {
+            width: 500px;
+            height: 400px;
+            border: 2px solid black;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejemplo con geolocalización</h1>
+    <form name="formulario1" id="form1">
+        <fieldset>
+            <legend>Datos de geolocalización</legend> <label id="etiquetaLatitud" for="campoLatitud">Latitud:</label> <input name="clatitud" id="campoLatitud" type="text"> <br> <label id="etiquetaLongitud" for="campoLongitud">Longitud:</label> <input name="clongitud"
+                id="campoLongitud" type="text">
+            <!--<label id="etiquetaUrl" for="campoUrl">URL:</label>
+
+    <input name="cUrl" id="campoUrl" type="url">--></fieldset>
+    </form> <button onclick="obtenerLocalizacion('campoLatitud','campoLongitud')">Obtener localización actual</button>
+    <!-- <h2>Mapa con la localización actual:</h2> <img src="" id="mapa" class="mapa"> -->
+    <script>
+        function obtenerLocalizacion(idlati, idlong) {
+            elementoLat = document.getElementById(idlati);
+            elementoLong = document.getElementById(idlong);
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarPosicion); /*Pasamos como parámetro del nombre de la función a la que llamaremos cuando se obtenga la posición*/
+            } else {
+                elementoLat.innerHTML = "Tu navegador no soporta geolocalización";
+                elementoLong.innerHTML = "Tu navegador no soporta geolocalización";
+            }
+        }
+
+        function mostrarPosicion(posicion) {
+            elementoLat.value = posicion.coords.latitude;
+            elementoLong.value = posicion.coords.longitude; /*Esto sería para localizar las coordenadas en un mapa de Google Maps. Requiere una clave de la API de Google Maps var latlon = posicion.coords.latitude + "," + posicion.coords.longitude; var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyD09UEK_m9R8dd4dedpFmrHmIjbEBSrzVY"; document.getElementById("campoUrl").value = img_url; document.getElementById("mapa").innerHTML = "<img src='"+img_url+"'>";*/
+        }
+    </script>
+</body>

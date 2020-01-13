@@ -1,0 +1,9 @@
+.ut4cv {
+  border: 1px solid black;
+}
+
+h3 ~ img {
+  display: none;
+}
+
+/*# sourceMappingURL=ej1.css.map */
