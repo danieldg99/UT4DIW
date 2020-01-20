@@ -1,0 +1,41 @@
+.ut4a, .ut4g {
+  display: grid;
+  background-color: green;
+  height: 400px;
+  width: 200px;
+  margin: 1em auto;
+  border: 2px solid black;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.ut4g__e {
+  background-color: #fff;
+  grid-column: 2/3;
+  grid-row: 2/8;
+}
+.ut4g__e:nth-child(2) {
+  grid-column: 2/5;
+  grid-row: 7/8;
+}
+.ut4a {
+  grid-template-areas: "a a a a a", "a l a a a", "a l a a a", "a l a a a", "a l a a a", "a l a a a", "a x x x a", "a a a a a";
+}
+.ut4a__e {
+  background-color: #fff;
+  grid-area: l;
+}
+.ut4a__e:nth-child(2) {
+  grid-area: x;
+}
+.ut4i {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.ut4i__e img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=ej1.css.map */
